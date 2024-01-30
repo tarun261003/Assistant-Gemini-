@@ -1,0 +1,44 @@
+ ```python
+ def number_to_word(number):
+     """
+     Converts a number to its word form.
+ 
+     Args:
+     number: The number to convert.
+ 
+     Returns:
+     The word form of the number.
+     """
+     units = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+     teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+     tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+ 
+     if number == 0:
+         return "zero"
+ 
+     if number < 10:
+         return units[number]
+ 
+     if number < 20:
+         return teens[number - 10]
+ 
+     if number < 100:
+         return tens[number // 10 - 2] + ("-" + units[number % 10])
+ 
+     if number < 1000:
+         return units[number // 100] + " hundred" + (" " + number_to_word(number % 100))
+ 
+     if number < 1000000:
+         return number_to_word(number // 1000) + " thousand" + (" " + number_to_word(number % 1000))
+ 
+     if number < 1000000000:
+         return number_to_word(number // 1000000) + " million" + (" " + number_to_word(number % 1000000))
+ 
+     return number_to_word(number // 1000000000) + " billion" + (" " + number_to_word(number % 1000000000))
+ 
+ 
+ if __name__ == "__main__":
+     number = int(input("Enter a number: "))
+     word = number_to_word(number)
+     print(f"{number} in word form is: {word}")
+ ```
