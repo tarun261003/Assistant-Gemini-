@@ -78,6 +78,9 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Local configuration
+config.py
+
 # IPython
 profile_default/
 ipython_config.py
